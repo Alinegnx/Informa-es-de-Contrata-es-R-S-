@@ -3,139 +3,594 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Informações de Ouro</title>
+  <title>Informações de Ouro — Processo Seletivo</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f3f4f6;
+      --text: #081224;
+      --muted: #42556f;
+      --line: #d8dee8;
+      --card: #ffffff;
+      --blue: #3b82f6;
+      --orange: #ff6a2a;
+      --orange2: #ff4d4d;
+      --soft1: #efedf9;
+      --soft2: #eef6fb;
+      --soft3: #f8f2ef;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
+
     .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 32px 20px 80px;
+      max-width: 1460px;
+      margin: 32px auto 80px;
+      padding: 0 18px;
     }
+
     .hero {
-      background: white;
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
-      margin-bottom: 24px;
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 38px;
-    }
-    .subtitle {
-      font-size: 18px;
-      color: #4b5563;
-    }
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .badge {
-      background: #e8eefc;
-      color: #1d4ed8;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .section {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.06);
-      margin-bottom: 18px;
-    }
-    .number {
-      display: inline-block;
-      width: 34px;
-      height: 34px;
-      line-height: 34px;
+      background: linear-gradient(90deg, var(--soft1) 0%, var(--soft2) 55%, var(--soft3) 100%);
+      border: 1px solid #e3e7ef;
+      border-radius: 28px;
+      padding: 26px 24px 34px;
       text-align: center;
-      border-radius: 999px;
-      background: #1d4ed8;
-      color: white;
-      font-weight: bold;
-      margin-bottom: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
     }
-    h2 {
-      margin: 0 0 8px;
+
+    .logo-wrap {
+      margin-bottom: 8px;
+    }
+
+    .logo {
+      width: 290px;
+      max-width: 100%;
+      border-radius: 18px;
+      object-fit: contain;
+      display: inline-block;
+    }
+
+    .topline {
+      margin: 8px 0 18px;
+      color: #2b4467;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 17px;
+    }
+
+    .topline .dot {
+      color: var(--blue);
       font-size: 24px;
+      margin-right: 8px;
+      vertical-align: middle;
     }
-    ul {
-      padding-left: 20px;
+
+    h1 {
+      margin: 0;
+      font-size: 72px;
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 1100px;
+      font-size: 28px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid #d9dee7;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 18px;
+      color: #081224;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .pill .p-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .p-orange { background: #f97316; }
+    .p-green { background: #22c55e; }
+    .p-blue { background: #3b82f6; }
+
+    .action-row {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      border: 1px solid #d6dce6;
+      background: rgba(255,255,255,0.6);
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-size: 17px;
+      cursor: pointer;
+      color: #111827;
+    }
+
+    .action-btn:hover {
+      background: #ffffff;
+    }
+
+    .section-box {
+      margin-top: 22px;
+      background: linear-gradient(90deg, #eef7fb 0%, #f6f3fa 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px 26px 18px;
+    }
+
+    .section-box h2 {
+      margin: 0 0 12px;
+      font-size: 31px;
+      line-height: 1.2;
+    }
+
+    .section-box ul {
+      margin: 0;
+      padding-left: 24px;
+    }
+
+    .section-box li {
+      font-size: 25px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .section-box li::marker {
+      color: var(--blue);
+    }
+
+    .card {
+      margin-top: 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.03);
+      padding: 22px;
+    }
+
+    .card-header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 14px;
+    }
+
+    .num {
+      width: 54px;
+      height: 54px;
+      min-width: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--orange) 0%, var(--orange2) 100%);
+      color: white;
+      font-size: 33px;
+      font-weight: 800;
+      box-shadow: 0 10px 18px rgba(255,106,42,0.18);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 45px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .card-subtitle {
       margin: 10px 0 0;
+      font-size: 24px;
+      line-height: 1.45;
+      color: var(--muted);
     }
+
+    .items {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .item {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      padding: 16px 18px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .check {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 12px;
+      border: 3px solid #b7bfce;
+      background: #eef2f7;
+      margin-top: 3px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.2s ease;
+    }
+
+    .check.checked {
+      background: #dbeafe;
+      border-color: #60a5fa;
+    }
+
+    .check.checked::after {
+      content: "✓";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    .item-text {
+      font-size: 25px;
+      line-height: 1.55;
+    }
+
+    .item-text strong {
+      font-weight: 800;
+    }
+
+    .image-box {
+      border: 1px dashed #c9d2df;
+      border-radius: 22px;
+      padding: 18px;
+      text-align: center;
+      color: var(--muted);
+      background: #fafbfc;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .flow-image {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+    }
+
     .footer {
       text-align: center;
-      color: #6b7280;
-      margin-top: 30px;
-      font-size: 14px;
+      margin-top: 28px;
+      color: #334155;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .top-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1100px) {
+      h1 { font-size: 52px; }
+      .subtitle { font-size: 22px; }
+      .card-title { font-size: 34px; }
+      .card-subtitle { font-size: 20px; }
+      .item-text, .section-box li { font-size: 21px; }
+      .section-box h2 { font-size: 27px; }
+    }
+
+    @media (max-width: 720px) {
+      .container { margin-top: 16px; padding: 0 12px; }
+      .hero, .card, .section-box { border-radius: 18px; }
+      h1 { font-size: 38px; }
+      .subtitle { font-size: 18px; }
+      .topline { font-size: 13px; }
+      .card-title { font-size: 27px; }
+      .card-subtitle { font-size: 17px; }
+      .item-text, .section-box li { font-size: 17px; }
+      .section-box h2 { font-size: 22px; }
+      .num {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        font-size: 27px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="hero">
-      <p>Material de apoio — Recrutamento & Seleção</p>
+  <div class="container" id="topo">
+    <section class="hero">
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Logo da empresa" class="logo">
+      </div>
+
+      <div class="topline">
+        <span class="dot">•</span>MATERIAL DE APOIO — RECRUTAMENTO &amp; SELEÇÃO
+      </div>
+
       <h1>Informações de Ouro</h1>
+
       <p class="subtitle">
         Dicas objetivas e indispensáveis para você avançar com segurança no processo e começar bem na operação.
       </p>
 
-      <div class="badge-row">
-        <span class="badge">Checklist interativo</span>
-        <span class="badge">Uso em entrevista</span>
-        <span class="badge">Leitura rápida</span>
+      <div class="pill-row">
+        <div class="pill"><span class="p-dot p-orange"></span>Checklist interativo</div>
+        <div class="pill"><span class="p-dot p-green"></span>Uso em entrevista</div>
+        <div class="pill"><span class="p-dot p-blue"></span>Leitura rápida</div>
       </div>
-    </div>
 
-    <div class="section">
-      <div class="number">1</div>
-      <h2>O que pode reprovar automaticamente</h2>
-      <p>Pontos eliminatórios — alinhe antes de avançar.</p>
-      <ul>
-        <li>Incoerência de informações ou documentos.</li>
-        <li>Vínculo CLT ativo em outra empresa.</li>
-        <li>Vínculo com Shopee ou consultorias nos últimos 12 meses.</li>
-      </ul>
-    </div>
+      <div class="action-row">
+        <button class="action-btn" onclick="marcarTudo()">Marcar tudo</button>
+        <button class="action-btn" onclick="limparTudo()">Limpar</button>
+      </div>
+    </section>
 
-    <div class="section">
-      <div class="number">2</div>
-      <h2>O que é trabalho temporário</h2>
+    <section class="section-box">
+      <h2>Instruções iniciais da reunião</h2>
       <ul>
-        <li>É CLT com todos os direitos.</li>
-        <li>Duração de até 270 dias.</li>
-        <li>Pode haver internalização.</li>
-        <li>Avaliações em média a cada 60–90 dias.</li>
+        <li>Manter a câmera ligada e permanecer presente durante toda a reunião.</li>
+        <li>Manter o microfone silenciado e ligar apenas ao fazer perguntas.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
-      <div class="number">3</div>
-      <h2>Pacote de Remuneração</h2>
-      <ul>
-        <li>Salário: R$ 1.980,00</li>
-        <li>Vale Transporte</li>
-        <li>Auxílio Combustível</li>
-        <li>Fretado</li>
-        <li>Refeitório</li>
-        <li>Adicional noturno</li>
-        <li>Vale cesta básica</li>
-      </ul>
-    </div>
+    <section class="card">
+      <div class="card-header">
+        <div class="num">1</div>
+        <div>
+          <h3 class="card-title">O que pode reprovar automaticamente</h3>
+          <p class="card-subtitle">Pontos eliminatórios — alinhe antes de avançar.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item">
+          <div class="check" onclick="toggleCheck(this)"></div>
+          <div class="item-text"><strong>Incoerência de informações ou documentos.</strong> Divergências podem gerar desclassificação imediata.</div>
+        </div>
+        <div class="item">
+          <div class="check" onclick="toggleCheck(this)"></div>
+          <div class="item-text"><strong>Vínculo CLT ativo</strong> em outra empresa (freelancer/prestação de serviço não é impeditivo).</div>
+        </div>
+        <div class="item">
+          <div class="check" onclick="toggleCheck(this)"></div>
+          <div class="item-text"><strong>Vínculo com Shopee ou consultorias nos últimos 12 meses.</strong> Política interna: 18 meses sem recontratação.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">2</div>
+        <div>
+          <h3 class="card-title">O que é trabalho temporário</h3>
+          <p class="card-subtitle">Contrato CLT com prazo definido e possibilidade de internalização.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">É CLT com todos os direitos: FGTS, 13º e férias.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Duração de até 270 dias.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Pode haver internalização (efetivação pela Shopee).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Avaliações em média a cada 60–90 dias.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Critérios: desempenho, engajamento e adaptação.</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">3</div>
+        <div>
+          <h3 class="card-title">Pacote de Remuneração</h3>
+          <p class="card-subtitle">Salário e benefícios — visão objetiva e checklist para apresentação.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Salário:</strong> R$ 1.980,00</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Benefícios — Transporte:</strong> ofertamos 3 opções (escolha conforme viabilidade).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Vale Transporte:</strong> pago conforme as passagens diárias, via Passe Livre do Trabalhador ou Cartão Mobilidade.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Auxílio Combustível:</strong> valor de R$ 440,00, pago em espécie.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Fretado:</strong> requer análise para validar cobertura da sua localização. Se a análise for NEGATIVA, você poderá escolher outra opção.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Refeitório:</strong> oferecemos 2 refeições (lanche + refeição principal).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Adicional noturno:</strong> 20% — aplicável ao T3.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Vale cesta básica:</strong> R$ 273,00 pagos no cartão iFood Benefícios.</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">4</div>
+        <div>
+          <h3 class="card-title">Opções de Transporte</h3>
+          <p class="card-subtitle">Checklist para alinhamento e escolha no ato da entrevista.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Uma decisão bem informada evita trocas, atrasos e retrabalho.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Vale-Transporte (VT):</strong> até 2 passagens/dia + desconto legal de 6%.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Fretado (MOB):</strong> depende de análise e aprovação prévia. Não cobre todas as regiões e pode ter negativa inicial por cobertura limitada.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Se o fretado não for aprovado: selecione VT ou Auxílio e solicite nova análise após a integração (chance maior por já estar no quadro).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Auxílio Combustível — R$ 444,00:</strong> pago em espécie, sem desconto. Em geral, é mais vantajoso que o VT e dá mais autonomia.</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">5</div>
+        <div>
+          <h3 class="card-title">Escalas e Turnos</h3>
+          <p class="card-subtitle">Escolha sua escala com atenção — alterações posteriores tendem a ser limitadas.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">O colaborador trabalha 6 dias consecutivos e tem 1 folga semanal fixa.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">É importante escolher com cuidado o turno desejado, pois depois não será fácil alterá-lo.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>6x1 • SEG–SÁB T1</strong><br>T1 — 05:25 às 13:45<br>Trabalha: segunda a sábado<br>Folga: domingo</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>6x1 • SEG–SÁB T2</strong><br>T2 — 13:40 às 22:00<br>Trabalha: segunda a sábado<br>Folga: domingo</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>6x1 • SEG–SÁB T3 - A</strong><br>T3 - A — 22:00 às 05:25<br>Início: noite de domingo<br>Encerramento: madrugada de sábado<br>Folga: sábado (após saída do turno)</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>6x1 • DOM–SEX T3 - B</strong><br>T3 - B — 17:00 às 00:50<br>Trabalha: domingo a sexta-feira<br>Folga: sábado</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">6</div>
+        <div>
+          <h3 class="card-title">Regras do dia a dia (operação)</h3>
+          <p class="card-subtitle">Segurança, padronização e conformidade no ambiente operacional.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Sem adornos: brincos, pulseiras, correntes, anéis e similares.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Sem roupas rasgadas e sem camisas de política, futebol ou religião.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Permitido bermuda na altura do joelho.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Celular: proibido dentro da operação. Guarde nos armários/sala de descanso.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Água: somente garrafa transparente com água.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Cabelo (mulheres): cabelo longo sempre preso com chuchinha (sem piranha/prendedores rígidos).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">EPI: solicite seu tamanho exato — padrão de qualidade e encaixe correto.</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">7</div>
+        <div>
+          <h3 class="card-title">Fluxo de Operação (Frentes)</h3>
+          <p class="card-subtitle">Veja na imagem, de forma simples, como é o nosso fluxo.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Você poderá atuar em qualquer uma dessas etapas, pois o trabalho não é pesado.</div></div>
+        <div class="image-box">
+          Para deixar igual ao original, envie também a imagem do fluxo e salve no repositório como <strong>fluxo.png</strong>.<br><br>
+          <img src="fluxo.png" alt="Fluxo de operação" class="flow-image" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">8</div>
+        <div>
+          <h3 class="card-title">Documentação (envio e requisitos)</h3>
+          <p class="card-subtitle">Link por e-mail e itens obrigatórios para anexar.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Após a validação interna, você será comunicado sobre a aprovação.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Aguarde no e-mail informado no formulário: você receberá um link para anexar os documentos.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Documentos indispensáveis: RG, CPF, comprovante de residência e foto profissional (foto nítida do rosto, simples e confortável).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Conta bancária: preferencialmente com chave Pix = CPF. Caso contrário, é necessário conta Itaú (corrente ou poupança).</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">9</div>
+        <div>
+          <h3 class="card-title">Sobre a Integração</h3>
+          <p class="card-subtitle">Etapa obrigatória e eliminatória para início na operação.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">2 dias obrigatórios (08h às 18h). Você será informado da janela com antecedência.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Faltar no 1º dia = desistência automática.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Sem integração completa, não há início na operação.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Transporte nos primeiros 7 dias (VT/Auxílio): o colaborador custeia o deslocamento inicialmente. Após 7 dias, há ressarcimento proporcional + adiantamento regular do benefício.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text"><strong>Obrigatório:</strong> venha para a integração com sapato fechado. Não é permitida a entrada com calçados abertos (chinelo, rasteira, sandálias).</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">10</div>
+        <div>
+          <h3 class="card-title">Possíveis descontos (provisão)</h3>
+          <p class="card-subtitle">Planejamento mensal — descontos previsíveis em folha.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">INSS: desconto estimado entre 7% e 9% (faixa aplicável até aprox. R$ 2.000,00).</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Refeitório: R$ 3,00 por mês.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Cesta básica / iFood: R$ 1,00 por mês.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Fretado: R$ 5,00 por mês (para quem utilizar).</div></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="num">11</div>
+        <div>
+          <h3 class="card-title">Nossa Localização</h3>
+          <p class="card-subtitle">Referências práticas para chegar ao CD.</p>
+        </div>
+      </div>
+      <div class="items">
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">A parada de ônibus nº (04711) é a mais próxima do Centro de Distribuição e fica em frente ao CD.</div></div>
+        <div class="item"><div class="check" onclick="toggleCheck(this)"></div><div class="item-text">Orientação final: siga essas diretrizes desde o início. Elas garantem fluidez no processo, conformidade operacional e uma jornada mais segura.</div></div>
+      </div>
+    </section>
 
     <div class="footer">
-      ELABORADO E PRODUZIDO POR BENITHO CÉSAR
+      ELABORADO E PRODUZIDO POR BENITHO CÉSAR<br>
+      <a href="#topo" class="top-link">Topo</a>
     </div>
   </div>
+
+  <script>
+    function toggleCheck(el) {
+      el.classList.toggle('checked');
+    }
+
+    function marcarTudo() {
+      document.querySelectorAll('.check').forEach(function(el) {
+        el.classList.add('checked');
+      });
+    }
+
+    function limparTudo() {
+      document.querySelectorAll('.check').forEach(function(el) {
+        el.classList.remove('checked');
+      });
+    }
+  </script>
 </body>
 </html>
